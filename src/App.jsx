@@ -8,6 +8,8 @@ import About from './views/about/About.jsx'
 import Detail from './views/detail/Detail.jsx'
 import Error from './views/error404/Error.jsx'
 import Form  from './views/form/Form.jsx'
+import Favorites from './views/favorites/Favorites.jsx'
+
 import './App.css';
 
 function App() {
@@ -99,6 +101,7 @@ function App() {
                element={<Cards characters={characters} onClose={closeHandler} />} />
             <Route path="/detail/:id" element={<Detail/> } />
             <Route path="/about" element={<About/> } />
+            <Route path='/favorites' element= {<Favorites/>}/>
             <Route path="/" element={<Form login={login}/>} />
             <Route path="*" element={<Error/>}/>
          </Routes>

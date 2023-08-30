@@ -2,7 +2,7 @@ function About() {
     return (
       <div>
         <h1>Hola, mi nombre es Evelyn.</h1>
-        <p>Hoy no tengo ganas de escribir, gracias por entender</p>
+        <p>Pronto van a tener informacion detallada sobre mi progreso académico</p>
       </div>
     );
   }

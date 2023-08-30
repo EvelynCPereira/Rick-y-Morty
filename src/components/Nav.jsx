@@ -8,6 +8,7 @@ function Nav({ onSearch, randomHandler, logOutHandler }) {
             <div className='left-links'>
                 <NavLink to="/about"><button>About</button></NavLink>
                 <NavLink to="/home"><button>Home</button></NavLink>
+                <NavLink to="/favorites"><button>Favorites</button></NavLink>
                 <NavLink to="/"><button>Log out</button></NavLink>
             </div>
             <SearchBar className='search-cont' onSearch={onSearch} randomHandler={randomHandler} logOutHandler={logOutHandler} />
