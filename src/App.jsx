@@ -35,8 +35,8 @@ function App() {
    }
 
    useEffect(() => {
-      if(access && location.pathname === "/"){
-         navigate("/home")
+      if(!access && location.pathname === "/"){
+         navigate("/")
       }
    }, [access, location.pathname]);
 

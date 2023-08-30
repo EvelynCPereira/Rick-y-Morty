@@ -43,7 +43,7 @@ function Card(props) {
 
    return (
       <div>
-         <button onClick={() => { onClose(id) }}>X</button>
+        {location.pathname === "/home" && ( <button onClick={() => { onClose(id), dispatch(removeFav(id)) }} >X</button>)}
          {isFav ? (<button onClick={() => { handleFavorite(id) }}>❤️</button>)
             : (<button onClick={() => { handleFavorite(props.character) }}>🤍</button>)}
          <NavLink to={`/detail/${id}`}>
