@@ -2,10 +2,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { addFav, removeFav } from "../redux/action"
 import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react";
+import "./StyleCards.css"
 
 
 function Card(props) {
-   const {onClose} = props
+   const { onClose } = props
    const { name, species, gender, image, id } = props.character
    const navigate = useNavigate();
    const myFavorites = useSelector((state) => state.myFavorites);
@@ -42,16 +43,22 @@ function Card(props) {
    }
 
    return (
-      <div>
-        {location.pathname === "/home" && ( <button onClick={() => { onClose(id), dispatch(removeFav(id)) }} >X</button>)}
-         {isFav ? (<button onClick={() => { handleFavorite(id) }}>❤️</button>)
-            : (<button onClick={() => { handleFavorite(props.character) }}>🤍</button>)}
-         <NavLink to={`/detail/${id}`}>
-            <h2 onClick={navigateHandler}> {name}</h2>
-         </NavLink>
-         <h2>{species}</h2>
-         <h2>{gender}</h2>
-         <img src={image} alt='imagen' />
+      <div className="card-container">
+      <div className="card">
+         <div className="face front">
+            {location.pathname === "/home" && (<button className="close-button" onClick={() => { onClose(id), dispatch(removeFav(id)) }} >X</button>)}
+            {isFav ? (<button className="heart-button" onClick={() => { handleFavorite(id) }}>❤️</button>)
+               : (<button className="heart-button" onClick={() => { handleFavorite(props.character) }}>🤍</button>)}
+            <NavLink to={`/detail/${id}`}>
+               <h2 className="character-name" onClick={navigateHandler}> {name}</h2>
+            </NavLink>
+            <div className="overlay">
+               <h3 className="left-info">{species}</h3>
+               <h3 className="right-info">{gender}</h3>
+            </div>
+            <img className="character-image" src={image} alt='imagen' />
+         </div>
+      </div>
       </div>
    );
 }

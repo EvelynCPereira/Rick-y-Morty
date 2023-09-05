@@ -1,0 +1,93 @@
+.card-container{
+ display: flex;
+ flex-wrap: wrap;
+  }
+
+.card {
+    width: 150px; 
+    height: 250px;
+    margin-top: 60px;
+    margin-right: 20px;
+    position: relative;
+    background-image: url("../assets/background.gif");
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    
+  }
+  .card .face.front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .face.front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .close-button:hover{
+    box-shadow: none;
+  }
+  .heart-button:hover{
+    box-shadow: none;
+  }
+  
+  .heart-button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .character-name {
+    text-align: center;
+    margin: 0;
+    color:#c6f2c7;
+    font-size: 14px;
+    margin: 0px 0px 10px 0px;
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .left-info,
+  .right-info {
+    margin: 10px;
+    color:#c6f2c7;
+    font-size: 14px;
+  }
+  
+  .character-image {
+    width: 100%;
+    height: auto;
+  }
+  

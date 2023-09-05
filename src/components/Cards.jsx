@@ -1,8 +1,9 @@
 import Card from './Card';
+import "./StyleCards.css"
 
 function Cards({characters,onClose}) {
    return (
-   <div>
+   <div className="card-container">
    {characters?.map((personaje)=>(
       <Card 
       key= {personaje.id}
