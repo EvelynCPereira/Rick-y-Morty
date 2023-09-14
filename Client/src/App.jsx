@@ -18,6 +18,10 @@ function App() {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
 
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // }, [access]);
+
   async function login(userData) {
     try {
       const { email, password } = userData;

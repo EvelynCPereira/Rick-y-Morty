@@ -1,31 +1,37 @@
-import {useSelector, useDispatch} from "react-redux";
-import {sortById, filterByGender, reset} from "../../redux/action";
+import { useSelector, useDispatch } from "react-redux";
+import { sortById, filterByGender } from "../../redux/action";
 import Cards from "../../components/Cards";
+import { useState, useEffect } from "react";
 
 function Favorites() {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.myFavorites);
+  const filtrados = useSelector((state) => state.filterChar);
+
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // }, [access]);
 
   function sortHandler(event) {
     dispatch(sortById(event.target.value));
   }
-
+  const [auxFiltrados, setAuxFiltrados] = useState(false);
   function filterHandler(event) {
+    if (event.target.value !== "AllGender") setAuxFiltrados(true);
+    else setAuxFiltrados(false);
     dispatch(filterByGender(event.target.value));
-  }
-
-  function resetHandler() {
-    dispatch(reset());
   }
 
   return (
     <div>
       <select placeholder="Gender" onChange={filterHandler}>
-        {["Male", "Female", "unknown", "Genderless"].map((gender) => (
-          <option key={gender} value={gender}>
-            {gender}
-          </option>
-        ))}
+        {["AllGender", "Male", "Female", "unknown", "Genderless"].map(
+          (gender) => (
+            <option key={gender} value={gender}>
+              {gender}
+            </option>
+          )
+        )}
       </select>
       <select placeholder="Sort" onChange={sortHandler}>
         {["Ascendente", "Descendente"].map((order) => (
@@ -34,8 +40,12 @@ function Favorites() {
           </option>
         ))}
       </select>
-      <button onClick={resetHandler}>RESET</button>
-      <Cards characters={favorites} />
+
+      {auxFiltrados ? (
+        <Cards characters={filtrados} />
+      ) : (
+        <Cards characters={favorites} />
+      )}
     </div>
   );
 }

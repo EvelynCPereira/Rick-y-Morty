@@ -1,8 +1,9 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, SORT, RESET } from "./action";
+import { ADD_FAV, REMOVE_FAV, FILTER, SORT } from "./action";
 
 let initialState = {
   myFavorites: [],
   allCharacters: [],
+  filterChar: [],
 };
 function rootReducer(state = initialState, action) {
   let sorted;
@@ -22,7 +23,7 @@ function rootReducer(state = initialState, action) {
     case FILTER:
       return {
         ...state,
-        myFavorites: state.allCharacters.filter(
+        filterChar: state.allCharacters.filter(
           (character) => character.gender === action.payload
         ),
       };
@@ -37,12 +38,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         myFavorites: [...sorted],
-      };
-
-    case RESET:
-      return {
-        ...state,
-        myFavorites: state.allCharacters,
       };
     default:
       return {
