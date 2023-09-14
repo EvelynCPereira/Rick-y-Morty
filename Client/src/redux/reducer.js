@@ -1,5 +1,4 @@
 import { ADD_FAV, REMOVE_FAV, FILTER, SORT, RESET } from "./action";
-import axios from "axios";
 
 let initialState = {
   myFavorites: [],
@@ -11,13 +10,14 @@ function rootReducer(state = initialState, action) {
     case ADD_FAV:
       return {
         ...state,
-        myFavorites: payload,
-        allCharacters: payload,
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
     case REMOVE_FAV:
       return {
         ...state,
-        myFavorites: payload,
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
     case FILTER:
       return {
