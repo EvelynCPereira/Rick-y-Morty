@@ -7,7 +7,7 @@ function login(req, res) {
     (user) => user.email === email && user.password === password
   );
 
-  const acceso = coincide ? true : false;
+  let acceso = coincide ? true : false;
 
   res.status(200).json({ acceso });
 }
